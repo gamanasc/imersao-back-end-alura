@@ -1,5 +1,5 @@
 import express from 'express'
-import { listarPosts } from '../controllers/postsController.js';
+import { listarPosts, publicarPost } from '../controllers/postsController.js';
 
 const routes = (app) => {
     // Retorna JSON caso seja aplicável
@@ -7,6 +7,8 @@ const routes = (app) => {
 
     // Rota para retornar todos os posts
     app.get('/posts', listarPosts);
+    // Rota para inserir um novo post
+    app.post('/posts', publicarPost);
 
 };
 
