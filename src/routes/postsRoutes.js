@@ -22,6 +22,7 @@ const routes = (app) => {
     app.get('/posts', listarPosts);
     // Rota para inserir um novo post
     app.post('/posts', publicarPost);
+    // Rota para um novo post com upload de imagem
     app.post('/upload', upload.single("imagem"), uploadImagem);
 
 };

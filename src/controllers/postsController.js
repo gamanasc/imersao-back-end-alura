@@ -29,8 +29,12 @@ export async function uploadImagem(req, res){
 
     try {
         const postCriado = await criarPost(post);
+        // Criando um novo nome para a imagem, baseada no ID retornado
         const imagemAtualizada = `uploads/${postCriado.insertedId}.jpg`;
+
+        // Usando a biblioteca nativa 'fs' para renomear a imagem salva para a variável acima
         fs.renameSync(req.file.path, imagemAtualizada);
+        
         res.status(200).json(postCriado);
     } catch (error) {
         console.log(error.message);
