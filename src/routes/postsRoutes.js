@@ -1,5 +1,18 @@
 import express from 'express'
-import { listarPosts, publicarPost } from '../controllers/postsController.js';
+import multer from 'multer';
+import { listarPosts, publicarPost, uploadImagem } from '../controllers/postsController.js';
+
+// Configuração específica do Windows
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+const upload = multer({ dest: "./uploads", storage });
 
 const routes = (app) => {
     // Retorna JSON caso seja aplicável
@@ -9,6 +22,7 @@ const routes = (app) => {
     app.get('/posts', listarPosts);
     // Rota para inserir um novo post
     app.post('/posts', publicarPost);
+    app.post('/upload', upload.single("imagem"), uploadImagem);
 
 };
 
