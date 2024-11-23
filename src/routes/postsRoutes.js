@@ -1,6 +1,6 @@
 import express from 'express'
 import multer from 'multer';
-import { listarPosts, publicarPost, uploadImagem } from '../controllers/postsController.js';
+import { listarPosts, publicarPost, uploadImagem, alterarPost } from '../controllers/postsController.js';
 
 // Configuração específica do Windows
 const storage = multer.diskStorage({
@@ -24,6 +24,8 @@ const routes = (app) => {
     app.post('/posts', publicarPost);
     // Rota para um novo post com upload de imagem
     app.post('/upload', upload.single("imagem"), uploadImagem);
+    // 
+    app.put('/upload/:id', alterarPost);
 
 };
 
