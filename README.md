@@ -1,6 +1,6 @@
 # API de Rede Social - Backend em Node.js
 
-Este projeto é uma API backend desenvolvida em Node.js e Express.js, com integração ao MongoDB, para o gerenciamento de posts em uma plataforma no modelo de rede social. A API oferece funcionalidades para listagem, criação, atualização e envio de imagens associadas a posts.
+Este projeto é uma API backend desenvolvida a partir da Imersão de Backend da Alura, utilizando Node.js e Express.js, com integração ao MongoDB, para o gerenciamento de posts em uma plataforma no modelo de rede social. A API oferece funcionalidades para listagem, criação, atualização e envio de imagens associadas a posts.
 
 ## Funcionalidades
 
